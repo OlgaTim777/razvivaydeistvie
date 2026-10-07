@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Редактор: Развивающееся действие (Ultimate Edition v5.0)</title>
+<title>Редактор: Развивающееся действие (Ultimate Edition v5.1)</title>
 <style>
 :root {
 --neon-blue: #00f3ff;
@@ -50,14 +50,12 @@ border-radius: 4px; }
 .tab-content { display: none; animation: fadeIn 0.3s; }
 .tab-content.active { display: block; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-/* --------------------------------- */
 
 .workspace { flex-grow: 1; display: flex; flex-direction: column; gap: 20px; }
 .form-group { margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);
 padding-bottom: 15px; }
 .form-group:last-child { border-bottom: none; }
-label { display: block; margin-bottom: 5px; font-size: 13px; color: #ccc;
-}
+label { display: block; margin-bottom: 5px; font-size: 13px; color: #ccc; }
 input[type="text"], input[type="number"], textarea, select {
 width: 100%; padding: 8px; box-sizing: border-box; margin-bottom: 5px;
 background: rgba(0,0,0,0.5); border: 1px solid var(--neon-blue);
@@ -68,12 +66,10 @@ input[type="color"] { width: 100%; height: 35px; background: none; border: none;
 padding: 0;}
 input[type="range"] { accent-color: var(--neon-blue); width: 100%; }
 input[type="checkbox"] { accent-color: var(--neon-blue); margin-right: 8px; }
-input[type="file"] { display: none;
-}
+input[type="file"] { display: none; }
 .inline-group { display: flex; gap: 10px; align-items: center; margin-bottom: 5px; }
 .inline-group > * { flex: 1; }
-textarea { height: 80px;
-resize: vertical; }
+textarea { height: 80px; resize: vertical; }
 .btn {
 background: transparent; color: var(--neon-blue);
 border: 1px solid var(--neon-blue); padding: 10px 15px;
@@ -82,11 +78,9 @@ transition: all 0.3s; text-transform: uppercase; font-size: 12px;
 width: 100%; margin-bottom: 10px; display: inline-block; text-align: center; box-sizing: border-box;
 }
 .btn:hover { background: var(--neon-blue); color: #000; box-shadow: 0 0 15px var(--neon-blue); }
-.btn-green { color: #0f0; border-color: #0f0;
-}
+.btn-green { color: #0f0; border-color: #0f0; }
 .btn-green:hover { background: #0f0; color: #000; box-shadow: 0 0 15px #0f0; }
-.btn-orange { color: #ffa500; border-color: #ffa500;
-}
+.btn-orange { color: #ffa500; border-color: #ffa500; }
 .btn-orange:hover { background: #ffa500; color: #000; box-shadow: 0 0 15px #ffa500; }
 
 #preview-wrapper { position: relative; width: 100%; height: 650px;
@@ -101,8 +95,7 @@ flex-shrink: 0; overflow: hidden;
 }
 #play-iframe {
 position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-border: 2px solid #0f0;
-box-sizing: border-box;
+border: 2px solid #0f0; box-sizing: border-box;
 background: #000; z-index: 50; display: none;
 }
 .draggable {
@@ -118,36 +111,24 @@ z-index: 10;
 }
 #main-image-element { text-align: center; background-size: cover; background-position: center;
 transition: transform 0.1s ease-in, filter 0.1s ease-in; }
-.task-element { flex-direction: column;
-text-align: center; background-position: center;
-box-sizing: border-box;}
+.task-element { flex-direction: column; text-align: center; background-position: center; box-sizing: border-box;}
 .delete-btn {
-position: absolute;
-top: -10px; right: -10px; background: #ff4444; color: white; border: none; border-radius: 50%;
-width: 22px; height: 22px;
-cursor: pointer; font-weight: bold;
+position: absolute; top: -10px; right: -10px; background: #ff4444; color: white; border: none; border-radius: 50%;
+width: 22px; height: 22px; cursor: pointer; font-weight: bold;
 font-size: 14px; display: flex; align-items: center; justify-content: center; z-index: 20;
 }
-.ui-block { padding: 8px 12px;
-min-width: 100px; text-align: center;
-}
-#ui-lifebar { width: 200px; height: 35px; padding: 5px; flex-direction: column;
-align-items: stretch;}
-.life-fill-preview { height: 100%;
-width: 50%; background: var(--neon-blue);
-border-radius: 4px; transition: 0.3s; }
+.ui-block { padding: 8px 12px; min-width: 100px; text-align: center; }
+#ui-lifebar { width: 200px; height: 35px; padding: 5px; flex-direction: column; align-items: stretch;}
+.life-fill-preview { height: 100%; width: 50%; background: var(--neon-blue); border-radius: 4px; transition: 0.3s; }
 
 @keyframes rainbowBorderPreview {
 0% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000; }
-33% { border-color: #00ff00;
-box-shadow: 0 0 15px #00ff00; }
+33% { border-color: #00ff00; box-shadow: 0 0 15px #00ff00; }
 66% { border-color: #0000ff; box-shadow: 0 0 15px #0000ff; }
-100% { border-color: #ff0000;
-box-shadow: 0 0 15px #ff0000; }
+100% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000; }
 }
 .rainbow-fx { animation: rainbowBorderPreview 3s linear infinite !important; }
-#code-output { width: 100%; height: 120px;
-font-family: monospace; font-size: 12px; }
+#code-output { width: 100%; height: 120px; font-family: monospace; font-size: 12px; }
 
 /* Оверлеи для предпросмотра старта и фидбека */
 .preview-overlay {
@@ -280,6 +261,8 @@ font-family: monospace; font-size: 12px; }
         <textarea id="wrong-answers">3, 5, 6&#10;Лондон, Берлин, Рим</textarea>
         <label>Начисление баллов за верный ответ</label>
         <input type="number" id="points-per-task" value="5">
+        <label>Штраф за ошибку (вычитание баллов)</label>
+        <input type="number" id="points-penalty" value="2">
     </div>
 </div>
 
@@ -391,8 +374,7 @@ font-family: monospace; font-size: 12px; }
                     <option value="'Arial Black', sans-serif">Arial Black</option>
                 </select>
             </div>
-            
-         <div style="flex: 1;"><label>Размер (px)</label><input type="number" id="ans-font-size" value="14"></div>
+            <div style="flex: 1;"><label>Размер (px)</label><input type="number" id="ans-font-size" value="14"></div>
             <div style="flex: 1;"><label>Цвет</label><input type="color" id="ans-color" value="#ffffff"></div>
         </div>
 
@@ -488,6 +470,7 @@ font-family: monospace; font-size: 12px; }
             
             <label style="margin-top:10px;"><input type="checkbox" id="fb-show-time" checked> Показывать общее затраченное время</label>
             <label><input type="checkbox" id="fb-show-correct" checked> Показывать кол-во верных ответов</label>
+            <label><input type="checkbox" id="fb-show-mistakes" checked> Показывать кол-во ошибок</label>
         </div>
 
         <label>Картинка награды (URL)</label>
@@ -498,9 +481,12 @@ font-family: monospace; font-size: 12px; }
 </div>
 
 <!-- Нижние кнопки -->
-<div style="margin-top: 15px; border-top: 1px solid rgba(0, 243, 255, 0.3); padding-top: 15px;">
+<div style="margin-top: 15px; border-top: 1px solid rgba(0, 243, 255, 0.3); padding-top: 15px; display: flex; flex-direction: column; gap: 8px;">
     <button class="btn" onclick="addTaskField()">+ Поле задания на сцену</button>
-    <button class="btn" style="background: var(--neon-blue); color: #000; font-size:14px;" onclick="generateGameCode()"><span data-t="btnGen">Сгенерировать игру</span></button>
+    <div class="inline-group" style="margin-bottom:0;">
+        <button class="btn" style="background: var(--neon-blue); color: #000; font-size:13px; margin-bottom:0;" onclick="generateGameCode()"><span data-t="btnGen">Сгенерировать игру</span></button>
+        <button class="btn btn-green" style="font-size:13px; margin-bottom:0;" onclick="downloadGameHTML()">💾 Скачать HTML игры</button>
+    </div>
 </div>
 
 </div>
@@ -543,19 +529,19 @@ font-family: monospace; font-size: 12px; }
     <!-- Оверлей Старта -->
     <div id="preview-start-screen" class="preview-overlay">
         <div class="preview-overlay-bg"></div>
-        <h2 id="prev-start-title" style="margin-bottom:15px;">Заголовок</h2>
-        <div id="prev-start-desc" style="margin-bottom:30px;">Инструкция</div>
-        <button class="preview-btn" id="prev-start-btn">НАЧАТЬ</button>
+        <h2 id="prev-start-title" style="margin-bottom:15px; z-index:1;">Заголовок</h2>
+        <div id="prev-start-desc" style="margin-bottom:30px; z-index:1;">Инструкция</div>
+        <button class="preview-btn" id="prev-start-btn" style="z-index:1;">НАЧАТЬ</button>
     </div>
 
     <!-- Оверлей Фидбека -->
     <div id="preview-feedback-screen" class="preview-overlay">
         <div class="preview-overlay-bg"></div>
-        <h2 id="prev-fb-title" style="margin-bottom:10px;">Отличная работа!</h2>
-        <div id="prev-fb-motiv" style="margin-bottom:20px;">Мотивация</div>
-        <div id="prev-fb-res" style="margin-bottom:20px; text-align:center;">Результаты</div>
-        <img id="prev-fb-img" src="" style="display:none; max-width:200px; margin-bottom:20px;">
-        <button class="preview-btn" id="prev-fb-btn">ИГРАТЬ СНОВА</button>
+        <h2 id="prev-fb-title" style="margin-bottom:10px; z-index:1;">Отличная работа!</h2>
+        <div id="prev-fb-motiv" style="margin-bottom:20px; z-index:1;">Мотивация</div>
+        <div id="prev-fb-res" style="margin-bottom:20px; text-align:center; z-index:1;">Результаты</div>
+        <img id="prev-fb-img" src="" style="display:none; max-width:200px; margin-bottom:20px; z-index:1;">
+        <button class="preview-btn" id="prev-fb-btn" style="z-index:1;">ИГРАТЬ СНОВА</button>
     </div>
 
     <iframe id="play-iframe" allow="autoplay"></iframe>
@@ -563,9 +549,12 @@ font-family: monospace; font-size: 12px; }
 </div>
 </div>
 <div class="panel">
-<h3>Код Iframe (для вставки на сайт)</h3>
-<textarea id="code-output" readonly></textarea>
-<button class="btn" onclick="copyCode()">Копировать код</button>
+<h3>Код Iframe (для вставки на сайт или Genially)</h3>
+<textarea id="code-output" readonly placeholder="Здесь появится сгенерированный код..."></textarea>
+<div class="inline-group" style="margin-top:10px;">
+    <button class="btn" style="margin-bottom:0;" onclick="copyCode()">Копировать код</button>
+    <button class="btn btn-green" style="margin-bottom:0;" onclick="downloadGameHTML()">💾 Скачать файл HTML</button>
+</div>
 </div>
 </div>
 
@@ -582,15 +571,23 @@ function openTab(evt, tabName) {
 
 const dict = {
     ru: { t1:"Настройки игры", t2:"Глобальные настройки", t3:"Стиль основного поля", t4:"Задания и Ответы", t5:"Стиль полей заданий", t6:"Независимые Блоки UI", t7:"Экран Фидбека", t8:"Механика и Звук", t9:"Эффекты при ответе", loop:"Повторять по кругу", btnGen:"Сгенерировать игру", save:"Сохранить JSON", load:"Загрузить JSON",
-          g_score:"Счет:", g_timer:"Таймер:", g_prog:"Прогресс", g_again:"Играть снова", g_total:"Итоговый счет:", g_time:"Время:", g_correct:"Верных ответов:",
+          g_score:"Счет:", g_timer:"Таймер:", g_prog:"Прогресс", g_again:"Играть снова", g_total:"Итоговый счет:", g_time:"Время:", g_correct:"Верных ответов:", g_mistakes:"Ошибок:",
           tab_gen:"Общие", tab_start:"Старт", tab_cont:"Контент", tab_main:"Осн. поле", tab_tasks:"Карточки", tab_ui:"UI и Эффекты", tab_fb:"Фидбек" },
     en: { t1:"Game Settings", t2:"Global Settings", t3:"Main Field Style", t4:"Tasks & Answers", t5:"Task Field Style", t6:"UI Blocks", t7:"Feedback Screen", t8:"Mechanics & Audio", t9:"Answer Effects", loop:"Loop tasks", btnGen:"Generate Game", save:"Save JSON", load:"Load JSON",
-          g_score:"Score:", g_timer:"Timer:", g_prog:"Progress", g_again:"Play Again", g_total:"Final Score:", g_time:"Time:", g_correct:"Correct answers:",
+          g_score:"Score:", g_timer:"Timer:", g_prog:"Progress", g_again:"Play Again", g_total:"Final Score:", g_time:"Time:", g_correct:"Correct answers:", g_mistakes:"Mistakes:",
           tab_gen:"General", tab_start:"Start", tab_cont:"Content", tab_main:"Main Field", tab_tasks:"Cards", tab_ui:"UI & FX", tab_fb:"Feedback" },
-    // Остальные переводы сокращены для примера (они аналогичны)
     de: { t1:"Spieleinstellungen", t2:"Globale Einstellungen", t3:"Hauptfeld-Stil", t4:"Aufgaben & Antworten", t5:"Aufgabenfeld-Stil", t6:"UI-Blöcke", t7:"Feedback-Bildschirm", t8:"Mechanik & Audio", t9:"Antworteffekte", loop:"Aufgaben wiederholen", btnGen:"Spiel generieren", save:"JSON speichern", load:"JSON laden",
-          g_score:"Ergebnis:", g_timer:"Timer:", g_prog:"Fortschritt", g_again:"Nochmal spielen", g_total:"Endergebnis:", g_time:"Zeit:", g_correct:"Richtige Antworten:",
-          tab_gen:"Allgemein", tab_start:"Start", tab_cont:"Inhalt", tab_main:"Hauptfeld", tab_tasks:"Karten", tab_ui:"UI & FX", tab_fb:"Feedback" }
+          g_score:"Ergebnis:", g_timer:"Timer:", g_prog:"Fortschritt", g_again:"Nochmal spielen", g_total:"Endergebnis:", g_time:"Zeit:", g_correct:"Richtige Antworten:", g_mistakes:"Fehler:",
+          tab_gen:"Allgemein", tab_start:"Start", tab_cont:"Inhalt", tab_main:"Hauptfeld", tab_tasks:"Karten", tab_ui:"UI & FX", tab_fb:"Feedback" },
+    it: { t1:"Impostazioni Gioco", t2:"Impostazioni globali", t3:"Stile campo principale", t4:"Domande e risposte", t5:"Stile campo attività", t6:"Blocchi UI", t7:"Schermata Feedback", t8:"Meccanica e Audio", t9:"Effetti risposta", loop:"Ripeti compiti", btnGen:"Genera Gioco", save:"Salva JSON", load:"Carica JSON",
+          g_score:"Punti:", g_timer:"Timer:", g_prog:"Progresso", g_again:"Rigioca", g_total:"Punteggio finale:", g_time:"Tempo:", g_correct:"Risposte corrette:", g_mistakes:"Errori:",
+          tab_gen:"Generali", tab_start:"Inizio", tab_cont:"Contenuto", tab_main:"Campo princ.", tab_tasks:"Carte", tab_ui:"UI e Effetti", tab_fb:"Feedback" },
+    fr: { t1:"Paramètres du jeu", t2:"Paramètres globaux", t3:"Style du champ principal", t4:"Tâches et réponses", t5:"Style de champ de tâche", t6:"Blocs UI", t7:"Écran de retour", t8:"Mécanique et audio", t9:"Effets de réponse", loop:"Boucle de tâches", btnGen:"Générer le jeu", save:"Enregistrer JSON", load:"Charger JSON",
+          g_score:"Score:", g_timer:"Temps:", g_prog:"Progrès", g_again:"Rejouer", g_total:"Score Final:", g_time:"Temps:", g_correct:"Bonnes réponses:", g_mistakes:"Erreurs:",
+          tab_gen:"Général", tab_start:"Début", tab_cont:"Contenu", tab_main:"Champ princ.", tab_tasks:"Cartes", tab_ui:"UI & Effets", tab_fb:"Rétroaction" },
+    zh: { t1:"游戏设置", t2:"全局设置", t3:"主区域样式", t4:"任务与答案", t5:"任务区域样式", t6:"UI 块", t7:"反馈屏幕", t8:"机制与声音", t9:"答题特效", loop:"循环任务", btnGen:"生成游戏", save:"保存 JSON", load:"加载 JSON",
+          g_score:"得分:", g_timer:"计时器:", g_prog:"进度", g_again:"再玩一次", g_total:"最终得分:", g_time:"时间:", g_correct:"正确答案:", g_mistakes:"错误数:",
+          tab_gen:"常规", tab_start:"开始", tab_cont:"内容", tab_main:"主区域", tab_tasks:"卡片", tab_ui:"UI与特效", tab_fb:"反馈" }
 };
 
 function applyLang() {
@@ -714,8 +711,8 @@ const bGrad = document.getElementById('main-border-gradient').checked;
 const bRadius = document.getElementById('main-border-radius').value;
 mainEl.style.width = document.getElementById('main-width').value + 'px';
 mainEl.style.height = document.getElementById('main-height').value + 'px';
-if(document.activeElement.id === 'main-top') mainEl.style.top = document.getElementById('main-top').value + 'px';
-if(document.activeElement.id === 'main-left') mainEl.style.left = document.getElementById('main-left').value + 'px';
+mainEl.style.top = document.getElementById('main-top').value + 'px';
+mainEl.style.left = document.getElementById('main-left').value + 'px';
 mainEl.style.borderRadius = bRadius + 'px';
 if (bGrad) {
 mainEl.style.border = `${bWidth}px solid transparent`;
@@ -735,6 +732,8 @@ const tTransp = document.getElementById('task-transparent').checked;
 const tBgUrl = document.getElementById('task-bg-image').value;
 taskCard.style.width = document.getElementById('task-width').value + 'px';
 taskCard.style.height = document.getElementById('task-height').value + 'px';
+taskCard.style.top = document.getElementById('task-top').value + 'px';
+taskCard.style.left = document.getElementById('task-left').value + 'px';
 taskCard.style.fontFamily = document.getElementById('task-font').value;
 taskCard.style.fontSize = document.getElementById('task-font-size').value + 'px';
 taskCard.style.color = document.getElementById('task-color').value;
@@ -747,16 +746,11 @@ taskCard.style.paddingRight = document.getElementById('task-pad-r').value + 'px'
 taskCard.style.justifyContent = document.getElementById('task-valign').value;
 taskCard.style.alignItems = document.getElementById('task-halign').value;
 if (tTransp) {
-taskCard.style.background = 'transparent';
+    taskCard.style.background = 'transparent';
 } else {
-if(tBgUrl) {
-taskCard.style.backgroundImage = `url("${tBgUrl}")`;
-taskCard.style.backgroundSize = document.getElementById('task-bg-size').value;
-taskCard.style.backgroundColor = 'rgba(0, 20, 30, 0.7)';
-} else {
-taskCard.style.backgroundImage = 'none';
-taskCard.style.background = 'rgba(0, 20, 30, 0.7)';
-}
+    taskCard.style.backgroundColor = 'rgba(0, 20, 30, 0.7)';
+    taskCard.style.backgroundImage = tBgUrl ? `url("${tBgUrl}")` : 'none';
+    if(tBgUrl) taskCard.style.backgroundSize = document.getElementById('task-bg-size').value;
 }
 
 // UI блоки
@@ -779,7 +773,6 @@ document.querySelectorAll('.ui-block').forEach(el => {
     }
 });
 document.getElementById('life-fill-preview').style.background = document.getElementById('life-fill-color').value;
-
 
 // --- ОБНОВЛЕНИЕ ОВЕРЛЕЕВ (СТАРТ И ФИДБЕК) ---
 const prevMode = document.getElementById('preview-mode-switch').value;
@@ -813,6 +806,7 @@ else if(prevMode === 'feedback') {
     let resHtml = `${t.g_total} 0`;
     if(document.getElementById('fb-show-time').checked) resHtml += `<br>${t.g_time} 0 с`;
     if(document.getElementById('fb-show-correct').checked) resHtml += `<br>${t.g_correct} 0 / 10`;
+    if(document.getElementById('fb-show-mistakes').checked) resHtml += `<br>${t.g_mistakes} 0`;
     document.getElementById('prev-fb-res').innerHTML = resHtml;
     document.getElementById('prev-fb-res').style.fontSize = document.getElementById('fb-desc-size').value + 'px';
     
@@ -868,16 +862,10 @@ const newTop = elmnt.offsetTop - p2; const newLeft = elmnt.offsetLeft - p1;
 elmnt.style.top = newTop + "px"; elmnt.style.left = newLeft + "px";
 if(elmnt.id === 'main-image-element') { document.getElementById('main-top').value = newTop; document.getElementById('main-left').value = newLeft; }
 if(elmnt.id === 'task-card-preview') { document.getElementById('task-top').value = newTop; document.getElementById('task-left').value = newLeft; }
-if(elmnt.id === 'ui-timer') { document.getElementById('ui-timer').style.top = newTop + 'px'; document.getElementById('ui-timer').style.left = newLeft + 'px'; }
-if(elmnt.id === 'ui-audio') { document.getElementById('ui-audio').style.top = newTop + 'px'; document.getElementById('ui-audio').style.left = newLeft + 'px'; }
 };
 };
 }
 
-document.getElementById('main-top').addEventListener('input', updatePreview);
-document.getElementById('main-left').addEventListener('input', updatePreview);
-document.getElementById('task-top').addEventListener('input', updatePreview);
-document.getElementById('task-left').addEventListener('input', updatePreview);
 document.querySelectorAll('.draggable').forEach(makeDraggable);
 document.querySelectorAll('input, select, textarea').forEach(el => el.addEventListener('input', updatePreview));
 
@@ -888,7 +876,7 @@ const btnD = document.getElementById('btn-mode-design');
 const btnP = document.getElementById('btn-mode-play');
 if(mode === 'play') {
 btnP.style.boxShadow = '0 0 15px #0f0'; btnD.style.boxShadow = 'none';
-document.getElementById('preview-mode-switch').value = 'game'; updatePreview(); // Сброс оверлеев
+document.getElementById('preview-mode-switch').value = 'game'; updatePreview(); 
 const code = generateGameCode(true);
 iframe.srcdoc = code;
 iframe.style.display = 'block';
@@ -901,353 +889,273 @@ draggables.forEach(el => el.style.visibility = 'visible');
 }
 }
 
+function compressHTML(str) {
+    return str
+        .replace(/<!--[\s\S]*?-->/g, '')
+        .replace(/\/\*[\s\S]*?\*\//g, '')
+        .replace(/\r?\n\s*/g, ' ')
+        .replace(/\s+/g, ' ')
+        .replace(/>\s+</g, '><')
+        .replace(/;\s+/g, ';')
+        .replace(/:\s+/g, ':')
+        .replace(/\{\s+/g, '{')
+        .replace(/\s+\}/g, '}')
+        .trim();
+}
+
 function generateGameCode(returnOnly = false) {
-const lang = document.getElementById('editor-lang').value;
-const t = dict[lang] || dict['ru'];
+try {
+    const lang = document.getElementById('editor-lang').value;
+    const t = dict[lang] || dict['ru'];
 
-const gWidth = document.getElementById('game-width').value || 1000;
-const gHeight = document.getElementById('game-height').value || 600;
-const config = {
-imgs: Array.from(document.querySelectorAll('.img-input')).map(i => i.value).filter(v => v),
-q: document.getElementById('questions').value.split('\n').filter(v => v),
-a: document.getElementById('correct-answers').value.split('\n').filter(v => v),
-w: document.getElementById('wrong-answers').value.split('\n').filter(v => v).map(l => l.split(',').map(s => s.trim())),
-ptsStep: parseInt(document.getElementById('points-to-switch').value) || 10,
-ptsTask: parseInt(document.getElementById('points-per-task').value) || 5,
-bg: document.getElementById('game-bg-image').value,
-audio: document.getElementById('bg-audio').value,
-timerVal: parseInt(document.getElementById('game-timer-val').value) || 60,
-isCountdown: document.getElementById('use-game-timer').checked,
+    const gWidth = document.getElementById('game-width').value || 1000;
+    const gHeight = document.getElementById('game-height').value || 600;
+    const config = {
+    imgs: Array.from(document.querySelectorAll('.img-input')).map(i => i.value.trim()).filter(v => v),
+    q: document.getElementById('questions').value.split('\n').map(s => s.trim()).filter(v => v),
+    a: document.getElementById('correct-answers').value.split('\n').map(s => s.trim()).filter(v => v),
+    w: document.getElementById('wrong-answers').value.split('\n').filter(v => v).map(l => l.split(',').map(s => s.trim())),
+    ptsStep: parseInt(document.getElementById('points-to-switch').value) || 10,
+    ptsTask: parseInt(document.getElementById('points-per-task').value) || 5,
+    ptsPenalty: parseInt(document.getElementById('points-penalty').value) || 0,
+    bg: document.getElementById('game-bg-image').value.trim(),
+    audio: document.getElementById('bg-audio').value.trim(),
+    timerVal: parseInt(document.getElementById('game-timer-val').value) || 60,
+    isCountdown: document.getElementById('use-game-timer').checked,
 
-// Настройки Старта
-startTitle: document.getElementById('start-title').value,
-startDesc: document.getElementById('start-desc').value,
-startBtn: document.getElementById('start-btn-txt').value,
-startFont: document.getElementById('start-font').value,
-startTitleSz: document.getElementById('start-title-size').value,
-startDescSz: document.getElementById('start-desc-size').value,
-startColor: document.getElementById('start-color').value,
-startBg: document.getElementById('start-bg').value,
+    // Настройки Старта
+    startTitle: document.getElementById('start-title').value,
+    startDesc: document.getElementById('start-desc').value,
+    startBtn: document.getElementById('start-btn-txt').value,
+    startFont: document.getElementById('start-font').value,
+    startTitleSz: document.getElementById('start-title-size').value,
+    startDescSz: document.getElementById('start-desc-size').value,
+    startColor: document.getElementById('start-color').value,
+    startBg: document.getElementById('start-bg').value.trim(),
 
-// Настройки Фидбека
-slogan: document.getElementById('fb-slogan').value,
-motiv: document.getElementById('fb-motiv').value,
-reward: document.getElementById('fb-image').value,
-fbImgSize: document.getElementById('fb-img-size').value,
-fbFont: document.getElementById('fb-font').value,
-fbTitleSz: document.getElementById('fb-title-size').value,
-fbDescSz: document.getElementById('fb-desc-size').value,
-fbColor: document.getElementById('fb-color').value,
-showTime: document.getElementById('fb-show-time').checked,
-showCorrect: document.getElementById('fb-show-correct').checked,
+    // Настройки Фидбека
+    slogan: document.getElementById('fb-slogan').value,
+    motiv: document.getElementById('fb-motiv').value,
+    reward: document.getElementById('fb-image').value.trim(),
+    fbImgSize: document.getElementById('fb-img-size').value,
+    fbFont: document.getElementById('fb-font').value,
+    fbTitleSz: document.getElementById('fb-title-size').value,
+    fbDescSz: document.getElementById('fb-desc-size').value,
+    fbColor: document.getElementById('fb-color').value,
+    showTime: document.getElementById('fb-show-time').checked,
+    showCorrect: document.getElementById('fb-show-correct').checked,
+    showMistakes: document.getElementById('fb-show-mistakes').checked,
 
-randomize: document.getElementById('randomize-tasks').checked,
-loop: document.getElementById('loop-tasks').checked,
-contentWidth: document.getElementById('task-content-width').value || 100,
-taskFields: Array.from(document.querySelectorAll('.task-element')).map(el => ({top: el.style.top, left: el.style.left})),
+    randomize: document.getElementById('randomize-tasks').checked,
+    loop: document.getElementById('loop-tasks').checked,
+    contentWidth: document.getElementById('task-content-width').value || 100,
+    taskFields: Array.from(document.querySelectorAll('.task-element')).map(el => ({top: el.style.top, left: el.style.left})),
+    defaultTaskPos: { top: document.getElementById('task-top').value + 'px', left: document.getElementById('task-left').value + 'px' },
 
-// Эффекты
-fxCorImg: document.getElementById('fx-cor-img').value,
-fxWrImg: document.getElementById('fx-wr-img').value,
-fxCorAud: document.getElementById('fx-cor-aud').value,
-fxWrAud: document.getElementById('fx-wr-aud').value,
+    // Эффекты
+    fxCorImg: document.getElementById('fx-cor-img').value.trim(),
+    fxWrImg: document.getElementById('fx-wr-img').value.trim(),
+    fxCorAud: document.getElementById('fx-cor-aud').value.trim(),
+    fxWrAud: document.getElementById('fx-wr-aud').value.trim(),
 
-// Тексты для языка
-strings: { score: t.g_score, timer: t.g_timer, prog: t.g_prog, again: t.g_again, total: t.g_total, time: t.g_time, correct: t.g_correct }
-};
+    // Тексты для языка
+    strings: { score: t.g_score, timer: t.g_timer, prog: t.g_prog, again: t.g_again, total: t.g_total, time: t.g_time, correct: t.g_correct, mistakes: t.g_mistakes }
+    };
 
-const mainEl = document.getElementById('main-image-element');
-const mWidth = document.getElementById('main-width').value;
-const mHeight = document.getElementById('main-height').value;
-const bRadius = document.getElementById('main-border-radius').value;
-const bEnable = document.getElementById('main-border-enable').checked;
-const bColor = document.getElementById('main-border-color').value;
-const bWidth = document.getElementById('main-border-width').value;
-const bGlow = document.getElementById('main-border-glow').checked;
-let borderStyle = bEnable ? `${bWidth}px solid ${bColor}` : 'none';
-let shadowStyle = (bEnable && bGlow) ? `0 0 20px ${bColor}` : 'none';
-if(document.getElementById('main-border-gradient').checked) borderStyle = `${bWidth}px solid transparent`;
-const mainStyle = `top:${mainEl.style.top}; left:${mainEl.style.left}; width:${mWidth}px; height:${mHeight}px; border-radius:${bRadius}px; border:${borderStyle}; box-shadow:${shadowStyle};`;
-const mainClass = document.getElementById('main-border-gradient').checked ? 'rainbow-fx' : '';
+    const mainEl = document.getElementById('main-image-element');
+    const mWidth = document.getElementById('main-width').value;
+    const mHeight = document.getElementById('main-height').value;
+    const bRadius = document.getElementById('main-border-radius').value;
+    const bEnable = document.getElementById('main-border-enable').checked;
+    const bColor = document.getElementById('main-border-color').value;
+    const bWidth = document.getElementById('main-border-width').value;
+    const bGlow = document.getElementById('main-border-glow').checked;
+    let borderStyle = bEnable ? `${bWidth}px solid ${bColor}` : 'none';
+    let shadowStyle = (bEnable && bGlow) ? `0 0 20px ${bColor}` : 'none';
+    if(document.getElementById('main-border-gradient').checked) borderStyle = `${bWidth}px solid transparent`;
+    const mainStyle = `top:${mainEl.style.top};left:${mainEl.style.left};width:${mWidth}px;height:${mHeight}px;border-radius:${bRadius}px;border:${borderStyle};box-shadow:${shadowStyle};`;
+    const mainClass = document.getElementById('main-border-gradient').checked ? 'rainbow-fx' : '';
 
-const tWidth = document.getElementById('task-width').value;
-const tHeight = document.getElementById('task-height').value;
-const tBgUrl = document.getElementById('task-bg-image').value;
-const tBgSize = document.getElementById('task-bg-size').value;
-const tFont = document.getElementById('task-font').value;
-const tFontSize = document.getElementById('task-font-size').value;
-const tColor = document.getElementById('task-color').value;
-const ansFont = document.getElementById('ans-font').value;
-const ansFontSize = document.getElementById('ans-font-size').value;
-const ansColor = document.getElementById('ans-color').value;
-const tBorder = document.getElementById('task-border-enable').checked;
-const tTransp = document.getElementById('task-transparent').checked;
-const tBgStyle = tTransp ? 'transparent' : (tBgUrl ? `url("${tBgUrl}")` : 'rgba(0,20,30,0.8)');
-const tPadT = document.getElementById('task-pad-t').value;
-const tPadB = document.getElementById('task-pad-b').value;
-const tPadL = document.getElementById('task-pad-l').value;
-const tPadR = document.getElementById('task-pad-r').value;
-const tVAlign = document.getElementById('task-valign').value;
-const tHAlign = document.getElementById('task-halign').value;
+    const tWidth = document.getElementById('task-width').value;
+    const tHeight = document.getElementById('task-height').value;
+    const tBgUrl = document.getElementById('task-bg-image').value.trim();
+    const tBgSize = document.getElementById('task-bg-size').value;
+    const tFont = document.getElementById('task-font').value;
+    const tFontSize = document.getElementById('task-font-size').value;
+    const tColor = document.getElementById('task-color').value;
+    const ansFont = document.getElementById('ans-font').value;
+    const ansFontSize = document.getElementById('ans-font-size').value;
+    const ansColor = document.getElementById('ans-color').value;
+    const tBorder = document.getElementById('task-border-enable').checked;
+    const tTransp = document.getElementById('task-transparent').checked;
+    const tBgStyle = tTransp ? 'transparent' : (tBgUrl ? `url("${tBgUrl}")` : 'rgba(0,20,30,0.8)');
+    const tPadT = document.getElementById('task-pad-t').value;
+    const tPadB = document.getElementById('task-pad-b').value;
+    const tPadL = document.getElementById('task-pad-l').value;
+    const tPadR = document.getElementById('task-pad-r').value;
+    const tVAlign = document.getElementById('task-valign').value;
+    const tHAlign = document.getElementById('task-halign').value;
 
-const uiFont = document.getElementById('ui-font').value;
-const uiFontSize = document.getElementById('ui-font-size').value;
-const scorePos = document.getElementById('ui-score').style;
-const timerPos = document.getElementById('ui-timer').style;
-const audioPos = document.getElementById('ui-audio').style;
-const lifePos = document.getElementById('ui-lifebar').style;
-const scoreColor = document.getElementById('score-color').value;
-const timerColor = document.getElementById('timer-color').value;
-const uiBgStr = document.getElementById('ui-transp-global').checked ? 'transparent' : (document.getElementById('ui-bg-global').value + 'b3');
-const uiBorder = document.getElementById('ui-transp-global').checked ? 'none' : '1px solid #00f3ff';
-const uiBackdrop = document.getElementById('ui-transp-global').checked ? 'none' : 'blur(10px)';
-const lifeColor = document.getElementById('life-fill-color').value;
-const uiStyleTpl = `position:absolute; background:${uiBgStr}; border:${uiBorder}; backdrop-filter:${uiBackdrop}; padding:8px 12px; border-radius:8px; display:flex; align-items:center; justify-content:center; text-align:center; box-sizing:border-box; font-family:${uiFont}; font-size:${uiFontSize}px;`;
+    const uiFont = document.getElementById('ui-font').value;
+    const uiFontSize = document.getElementById('ui-font-size').value;
+    const scorePos = document.getElementById('ui-score').style;
+    const timerPos = document.getElementById('ui-timer').style;
+    const audioPos = document.getElementById('ui-audio').style;
+    const lifePos = document.getElementById('ui-lifebar').style;
+    const scoreColor = document.getElementById('score-color').value;
+    const timerColor = document.getElementById('timer-color').value;
+    const uiBgStr = document.getElementById('ui-transp-global').checked ? 'transparent' : (document.getElementById('ui-bg-global').value + 'b3');
+    const uiBorder = document.getElementById('ui-transp-global').checked ? 'none' : '1px solid #00f3ff';
+    const uiBackdrop = document.getElementById('ui-transp-global').checked ? 'none' : 'blur(10px)';
+    const lifeColor = document.getElementById('life-fill-color').value;
 
-const gameHtml = `
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<style>
-body { margin:0; height:100vh; width:100vw; overflow:hidden; font-family:sans-serif; background-color: ${config.bg ? '#000' : 'transparent'}; display: flex; align-items: center; justify-content: center; }
+    const gameHtml = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>`+
+    `body{margin:0;height:100vh;width:100vw;overflow:hidden;font-family:sans-serif;background-color:${config.bg ? '#000' : 'transparent'};display:flex;align-items:center;justify-content:center;}`+
+    `#game-container{position:relative;width:${gWidth}px;height:${gHeight}px;background-color:${config.bg ? '#111' : 'transparent'};${config.bg ? `background-image:url("${config.bg}");background-size:cover;background-position:center;` : ''}overflow:hidden;transform-origin:center center;box-shadow:0 0 30px rgba(0,243,255,0.1);}`+
+    `#main-field{position:absolute;${mainStyle}background-size:cover;background-position:center;transition:transform 0.1s,filter 0.1s,opacity 0.1s;display:flex !important;}`+
+    `.task-card{position:absolute;z-index:40;border:${tBorder ? '1px solid #00f3ff' : 'none'};background:${tBgStyle};background-size:${tBgSize};background-position:center;width:${tWidth}px;min-height:${tHeight}px;border-radius:8px;font-family:${tFont};color:${tColor};display:flex;flex-direction:column;box-sizing:border-box;box-shadow:${tBorder ? '0 0 20px rgba(0,243,255,0.3)' : 'none'};padding:${tPadT}px ${tPadR}px ${tPadB}px ${tPadL}px;justify-content:${tVAlign};align-items:${tHAlign};text-align:${tHAlign === 'flex-start' ? 'left' : (tHAlign === 'flex-end' ? 'right' : 'center')};}`+
+    `.task-question{font-weight:bold;font-family:${tFont};color:${tColor};font-size:${parseInt(tFontSize) + 2}px;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid rgba(0,243,255,0.5);text-shadow:1px 1px 3px #000;width:${config.contentWidth}%;}`+
+    `.task-answer-btn{width:${config.contentWidth}%;padding:12px;margin-bottom:8px;background:rgba(0,243,255,0.2);border:1px solid #00f3ff;border-radius:5px;color:${ansColor};font-family:${ansFont};font-size:${ansFontSize}px;cursor:pointer;transition:all 0.2s;text-shadow:1px 1px 3px #000;box-sizing:border-box;}`+
+    `.task-answer-btn:hover:not(:disabled){background:rgba(0,243,255,0.4);transform:scale(1.02);box-shadow:0 0 15px #00f3ff;}`+
+    `.task-answer-btn.wrong{background:rgba(255,0,0,0.6) !important;border-color:#ff0000 !important;}`+
+    `.task-answer-btn.correct{background:rgba(0,255,0,0.6) !important;border-color:#00ff00 !important;}`+
+    `.ui-box{position:absolute;z-index:50;background:${uiBgStr};border:${uiBorder};backdrop-filter:${uiBackdrop};padding:8px 12px;border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;font-family:${uiFont};font-size:${uiFontSize}px;}`+
+    `@keyframes popIn{0%{transform:translate(-50%,-50%) scale(0.5);opacity:0;}100%{transform:translate(-50%,-50%) scale(1);opacity:1;}}`+
+    `.rainbow-fx{border:2px solid #00f3ff !important;box-shadow:0 0 15px #00f3ff !important;}`+
+    `.screen-overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background-size:cover;background-position:center;}`+
+    `.screen-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;}`+
+    `.action-btn{margin-top:20px;padding:10px 20px;cursor:pointer;background:#00f3ff;color:#000;border:none;border-radius:5px;font-weight:bold;font-size:16px;transition:0.3s;box-shadow:0 0 10px rgba(0,243,255,0.5);}`+
+    `.action-btn:hover{background:#fff;transform:scale(1.05);}`+
+    `#start-screen{font-family:${config.startFont};color:${config.startColor};${config.startBg ? `background-image:url("${config.startBg}");` : ''}}`+
+    `#start-screen .screen-bg{background:${config.startBg ? 'rgba(0,0,0,0.6)' : 'rgba(0,0,0,0.85)'};}`+
+    `#feedback{font-family:${config.fbFont};color:${config.fbColor};display:none;background:rgba(0,0,0,0.9);}`+
+    `</style></head><body><div id="game-container">`+
+    `<audio id="bg-m" loop ${config.audio ? `src="${config.audio}"` : ''}></audio>`+
+    `<audio id="aud-cor" ${config.fxCorAud ? `src="${config.fxCorAud}"` : ''}></audio>`+
+    `<audio id="aud-wr" ${config.fxWrAud ? `src="${config.fxWrAud}"` : ''}></audio>`+
+    `<div id="main-field" class="${mainClass}"></div>`+
+    `<div id="ui-layer"></div>`+
+    `<div id="fx-layer" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:90;"></div>`+
+    `<div class="ui-box" style="top:${scorePos.top};left:${scorePos.left};color:${scoreColor};"><b>${config.strings.score} <span id="val-score">0</span></b></div>`+
+    `<div id="ui-timer-block" class="ui-box" style="top:${timerPos.top};left:${timerPos.left};color:${timerColor};"><b>${config.strings.timer} <span id="val-timer">${config.isCountdown ? config.timerVal : 0}</span></b></div>`+
+    `<div class="ui-box" style="top:${audioPos.top};left:${audioPos.left};"><b>🔊</b> <input type="range" style="width:60px;" id="vol-slider"></div>`+
+    `<div class="ui-box" style="top:${lifePos.top};left:${lifePos.left};width:200px;height:35px;flex-direction:column;padding:5px;"><div style="font-size:${Math.max(10, Math.floor(uiFontSize * 0.7))}px;color:#fff;margin-bottom:2px;">${config.strings.prog}</div><div style="width:100%;height:10px;background:rgba(0,0,0,0.5);border-radius:5px;overflow:hidden;"><div id="val-life" style="height:100%;width:0%;background:${lifeColor};transition:0.5s;"></div></div></div>`+
+    `<div id="start-screen" class="screen-overlay"><div class="screen-bg"></div><h1 style="font-size:${config.startTitleSz}px;margin-bottom:15px;text-shadow:2px 2px 5px #000;z-index:1;">${config.startTitle}</h1><div style="font-size:${config.startDescSz}px;margin-bottom:30px;text-shadow:1px 1px 3px #000;z-index:1;max-width:80%;white-space:pre-wrap;">${config.startDesc}</div><button class="action-btn" onclick="startGame()" style="z-index:1;font-family:${config.startFont};">${config.startBtn}</button></div>`+
+    `<div id="feedback" class="screen-overlay"><h2 style="font-size:${config.fbTitleSz}px;margin-bottom:10px;text-shadow:2px 2px 5px #000;">${config.slogan}</h2><div style="font-size:${config.fbDescSz}px;margin-bottom:20px;text-shadow:1px 1px 3px #000;">${config.motiv}</div><div id="fb-res" style="font-size:${config.fbDescSz}px;margin-bottom:20px;line-height:1.5;"></div>${config.reward ? `<img src="${config.reward}" style="width:${config.fbImgSize}px;margin-bottom:20px;filter:drop-shadow(0 0 15px rgba(255,255,255,0.3));">` : ''}<button class="action-btn" onclick="location.reload()" style="font-family:${config.fbFont};">${config.strings.again}</button></div>`+
+    `</div>`+
+    `<script>`+
+    `const cfg=${JSON.stringify(config).replace(/</g, '\\u003c')};`+
+    `let score=0,curQIndex=0,time=cfg.isCountdown?cfg.timerVal:0,tInt=null,timeElapsed=0,correctAnswers=0,mistakes=0;`+
+    `const totalQ=cfg.q.length,main=document.getElementById('main-field'),fxLayer=document.getElementById('fx-layer');`+
+    `const sc=()=>document.getElementById('game-container').style.transform=\`scale(\${Math.min(innerWidth/${gWidth},innerHeight/${gHeight})})\`;`+
+    `window.onresize=sc;sc();`+
+    `let questionOrder=Array.from({length:cfg.q.length},(_,i)=>i);if(cfg.randomize)questionOrder.sort(()=>Math.random()-0.5);`+
+    `const targetPositions=cfg.taskFields&&cfg.taskFields.length>0?cfg.taskFields:[cfg.defaultTaskPos];`+
+    `function updateMain(){`+
+      `const maxScore=cfg.ptsStep*(cfg.imgs.length-1),progress=Math.max(0,maxScore>0?Math.min(100,(score/maxScore)*100):(score>0?100:0)),idx=Math.max(0,Math.min(Math.floor(score/cfg.ptsStep),Math.max(0,cfg.imgs.length-1))),currentIdx=main.getAttribute('data-img-idx');`+
+      `if(cfg.imgs[idx]&&currentIdx!==String(idx)){`+
+        `main.style.transform='scale(1.03)';main.style.filter='blur(2px)';`+
+        `setTimeout(()=>{main.style.backgroundImage='url("'+cfg.imgs[idx]+'")';main.style.transform='scale(1)';main.style.filter='blur(0)';main.setAttribute('data-img-idx',idx);},100);`+
+      `}else if(!main.getAttribute('data-img-idx')&&cfg.imgs[idx]){`+
+        `main.style.backgroundImage='url("'+cfg.imgs[idx]+'")';main.setAttribute('data-img-idx',idx);`+
+      `}`+
+      `document.getElementById('val-score').innerText=score;`+
+      `document.getElementById('val-life').style.width=progress+'%';`+
+    `}`+
+    `function spawn(){`+
+      `const layer=document.getElementById('ui-layer');layer.innerHTML='';`+
+      `if(curQIndex>=questionOrder.length){if(cfg.loop){curQIndex=0;if(cfg.randomize)questionOrder.sort(()=>Math.random()-0.5);}else{return end();}}`+
+      `let curQ=questionOrder[curQIndex];const taskCard=document.createElement('div');taskCard.className='task-card';`+
+      `const pos=targetPositions[curQIndex%targetPositions.length]||cfg.defaultTaskPos;`+
+      `taskCard.style.top=pos.top||cfg.defaultTaskPos.top;taskCard.style.left=pos.left||cfg.defaultTaskPos.left;`+
+      `const qText=cfg.q[curQ]||"Вопрос не задан",aText=cfg.a[curQ]||"Ответ",qDiv=document.createElement('div');qDiv.className='task-question';qDiv.innerHTML=qText;taskCard.appendChild(qDiv);`+
+      `const allAnswers=[{text:aText,correct:true},...(cfg.w[curQ]||[]).map(text=>({text:text,correct:false}))];allAnswers.sort(()=>Math.random()-0.5);`+
+      `allAnswers.forEach((ansObj)=>{`+
+        `const btn=document.createElement('button');btn.className='task-answer-btn';btn.innerHTML=ansObj.text;`+
+        `btn.onclick=()=>{`+
+          `if(ansObj.correct){`+
+            `document.querySelectorAll('.task-answer-btn').forEach(b=>b.disabled=true);`+
+            `btn.classList.add('correct');correctAnswers++;`+
+            `const aud=document.getElementById('aud-cor');if(cfg.fxCorAud&&aud){aud.currentTime=0;aud.play().catch(()=>{});}`+
+            `if(cfg.fxCorImg){fxLayer.innerHTML='<img src="'+cfg.fxCorImg+'" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-width:80%;max-height:80%;animation:popIn 0.3s forwards;">';}`+
+            `setTimeout(()=>{fxLayer.innerHTML='';score+=cfg.ptsTask;curQIndex++;updateMain();spawn();},800);`+
+          `}else{`+
+            `btn.disabled=true;btn.classList.add('wrong');mistakes++;score-=cfg.ptsPenalty;updateMain();`+
+            `const aud=document.getElementById('aud-wr');if(cfg.fxWrAud&&aud){aud.currentTime=0;aud.play().catch(()=>{});}`+
+            `if(cfg.fxWrImg){fxLayer.innerHTML='<img src="'+cfg.fxWrImg+'" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-width:80%;max-height:80%;animation:popIn 0.3s forwards;">';setTimeout(()=>{fxLayer.innerHTML='';},1000);}`+
+          `}`+
+        `};`+
+        `taskCard.appendChild(btn);`+
+      `});`+
+      `layer.appendChild(taskCard);`+
+    `}`+
+    `function startGame(){`+
+      `document.getElementById('start-screen').style.display='none';`+
+      `const bgm=document.getElementById('bg-m');if(cfg.audio&&bgm)bgm.play().catch(()=>{});`+
+      `tInt=setInterval(()=>{timeElapsed++;if(cfg.isCountdown){time--;document.getElementById('val-timer').innerText=time;if(time<=0)end();}else{time++;document.getElementById('val-timer').innerText=time;}},1000);`+
+      `updateMain();spawn();`+
+    `}`+
+    `function end(){`+
+      `if(tInt)clearInterval(tInt);document.getElementById('feedback').style.display='flex';`+
+      `let resHtml='<b>'+cfg.strings.total+' '+score+'</b>';`+
+      `if(cfg.showTime)resHtml+='<br>'+cfg.strings.time+' '+timeElapsed+' с';`+
+      `if(cfg.showCorrect)resHtml+='<br>'+cfg.strings.correct+' '+correctAnswers+' / '+totalQ;`+
+      `if(cfg.showMistakes)resHtml+='<br>'+cfg.strings.mistakes+' '+mistakes;`+
+      `document.getElementById('fb-res').innerHTML=resHtml;`+
+    `}`+
+    `document.getElementById('vol-slider').oninput=(e)=>{const bgm=document.getElementById('bg-m');if(bgm)bgm.volume=e.target.value/100;};`+
+    `<\/script></body></html>`;
 
-#game-container {
-    position: relative; width: ${gWidth}px; height: ${gHeight}px;
-    background-color: ${config.bg ? '#111' : 'transparent'};
-    ${config.bg ? `background-image: url("${config.bg}"); background-size: cover; background-position: center;` : ''}
-    overflow: hidden; transform-origin: center center; box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+    const compressedHtml = compressHTML(gameHtml);
+    if(returnOnly) return compressedHtml;
+
+    const escapedHtml = compressedHtml
+        .replace(/&/g, "&amp;")
+        .replace(/'/g, "&#39;");
+        
+    document.getElementById('code-output').value = `<iframe srcdoc='${escapedHtml}' width="100%" height="${gHeight}px" style="border:none;background:transparent;" allow="autoplay" allowfullscreen></iframe>`;
+
+    return compressedHtml;
+} catch (e) {
+    console.error("Генерация прервана ошибкой:", e);
+    alert("Произошла ошибка при генерации кода. Проверьте правильность введенных данных.\n\nДетали ошибки: " + e.message);
+}
 }
 
-.base { position:absolute; border-radius:8px; padding:10px; display:flex; align-items:center; justify-content:center; }
-
-#main-field { position:absolute; ${mainStyle} background-size:cover; background-position:center; transition: transform 0.1s ease-in, filter 0.1s ease-in, opacity 0.1s ease-in; display:flex !important;}
-
-.task-card {
-position:absolute; border:${tBorder ? '1px solid #00f3ff' : 'none'};
-background:${tBgStyle}; background-size:${tBgSize}; background-position:center;
-width:${tWidth}px; min-height:${tHeight}px; border-radius:8px;
-font-family:${tFont}; color:${tColor};
-display:flex; flex-direction:column; box-sizing:border-box;
-box-shadow:${tBorder ? '0 0 20px rgba(0,243,255,0.3)' : 'none'};
-padding:${tPadT}px ${tPadR}px ${tPadB}px ${tPadL}px;
-justify-content:${tVAlign}; align-items:${tHAlign};
-text-align:${tHAlign === 'flex-start' ? 'left' : (tHAlign === 'flex-end' ? 'right' : 'center')};
-}
-
-.task-question { font-weight:bold; font-family:${tFont}; color:${tColor}; font-size:${parseInt(tFontSize) + 2}px; margin-bottom:15px; padding-bottom:10px; border-bottom:1px solid rgba(0,243,255,0.5); text-shadow: 1px 1px 3px rgba(0,0,0,0.8); width:${config.contentWidth}%; }
-.task-answer-btn { width:${config.contentWidth}%; padding:12px; margin-bottom:8px; background:rgba(0,243,255,0.2); border:1px solid #00f3ff; border-radius:5px; color:${ansColor}; font-family:${ansFont}; font-size:${ansFontSize}px; cursor:pointer; transition:all 0.2s; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); box-sizing:border-box; }
-.task-answer-btn:hover { background:rgba(0,243,255,0.4); transform:scale(1.02); box-shadow:0 0 15px #00f3ff; }
-.task-answer-btn.wrong { background:rgba(255,0,0,0.5); border-color:#ff0000; }
-.task-answer-btn.correct { background:rgba(0,255,0,0.5); border-color:#00ff00; }
-
-@keyframes dropRain { from { top:-30px; opacity:1; } to { top:100vh; opacity:0; } }
-@keyframes popIn { 0% { transform:translate(-50%, -50%) scale(0.5); opacity:0; } 80% { transform:translate(-50%, -50%) scale(1.1); opacity:1; } 100% { transform:translate(-50%, -50%) scale(1); opacity:1; } }
-@keyframes rainbow { 0%{border-color:red; box-shadow:0 0 20px red;} 33%{border-color:lime; box-shadow:0 0 20px lime;} 66%{border-color:blue; box-shadow:0 0 20px blue;} 100%{border-color:red; box-shadow:0 0 20px red;} }
-.rainbow-fx { animation: rainbow 3s linear infinite; border-style: solid !important; }
-
-/* Общие стили оверлеев */
-.screen-overlay { position:absolute; top:0; left:0; width:100%; height:100%; z-index:100; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; background-size:cover; background-position:center; }
-.screen-bg { position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1; }
-.action-btn { margin-top:20px; padding:10px 20px; cursor:pointer; background:#00f3ff; color:#000; border:none; border-radius:5px; font-weight:bold; font-size:16px; transition:0.3s; box-shadow: 0 0 10px rgba(0,243,255,0.5); }
-.action-btn:hover { background:#fff; transform:scale(1.05); }
-
-/* Старт */
-#start-screen {
-    font-family: ${config.startFont}; color: ${config.startColor};
-    ${config.startBg ? `background-image: url("${config.startBg}");` : ''}
-}
-#start-screen .screen-bg { background: ${config.startBg ? 'rgba(0,0,0,0.6)' : 'rgba(0,0,0,0.85)'}; }
-
-/* Фидбек */
-#feedback {
-    font-family: ${config.fbFont}; color: ${config.fbColor}; display:none; background:rgba(0,0,0,0.9);
-}
-</style>
-</head>
-<body>
-
-<div id="game-container">
-    <audio id="bg-m" loop src="${config.audio}"></audio>
-    <audio id="aud-cor" src="${config.fxCorAud}"></audio>
-    <audio id="aud-wr" src="${config.fxWrAud}"></audio>
-
-    <div id="main-field" class="${mainClass}"></div>
-    <div id="ui-layer"></div>
-    <div id="fx-layer" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:90;"></div>
-
-    <div style="${uiStyleTpl} top:${scorePos.top}; left:${scorePos.left}; color:${scoreColor};"><b>${config.strings.score} <span id="val-score">0</span></b></div>
-    <div id="ui-timer-block" style="${uiStyleTpl} top:${timerPos.top}; left:${timerPos.left}; color:${timerColor};"><b>${config.strings.timer} <span id="val-timer">${config.isCountdown ? config.timerVal : 0}</span></b></div>
-    <div style="${uiStyleTpl} top:${audioPos.top}; left:${audioPos.left};"><b>🔊</b> <input type="range" style="width:60px;" id="vol-slider"></div>
-    <div style="${uiStyleTpl} top:${lifePos.top}; left:${lifePos.left}; width:200px; height:35px; flex-direction:column; padding:5px;">
-        <div style="font-size:${Math.max(10, Math.floor(uiFontSize * 0.7))}px; color:#fff; margin-bottom:2px;">${config.strings.prog}</div>
-        <div style="width:100%; height:10px; background:rgba(0,0,0,0.5); border-radius:5px; overflow:hidden;">
-            <div id="val-life" style="height:100%; width:0%; background:${lifeColor}; transition:0.5s;"></div>
-        </div>
-    </div>
-    
-    <!-- Стартовый экран -->
-    <div id="start-screen" class="screen-overlay">
-        <div class="screen-bg"></div>
-        <h1 style="font-size:${config.startTitleSz}px; margin-bottom:15px; text-shadow: 2px 2px 5px #000; z-index:1;">${config.startTitle}</h1>
-        <div style="font-size:${config.startDescSz}px; margin-bottom:30px; text-shadow: 1px 1px 3px #000; z-index:1; max-width:80%;">${config.startDesc}</div>
-        <button class="action-btn" onclick="startGame()" style="z-index:1; font-family:${config.startFont};">${config.startBtn}</button>
-    </div>
-
-    <!-- Экран фидбека -->
-    <div id="feedback" class="screen-overlay">
-        <h2 style="font-size:${config.fbTitleSz}px; margin-bottom:10px; text-shadow: 2px 2px 5px #000;">${config.slogan}</h2>
-        <div style="font-size:${config.fbDescSz}px; margin-bottom:20px; text-shadow: 1px 1px 3px #000;">${config.motiv}</div>
-        <div id="fb-res" style="font-size:${config.fbDescSz}px; margin-bottom:20px; line-height:1.5;"></div>
-        ${config.reward ? `<img src="${config.reward}" style="width:${config.fbImgSize}px; margin-bottom:20px; filter:drop-shadow(0 0 15px rgba(255,255,255,0.3));">` : ''}
-        <button class="action-btn" onclick="location.reload()" style="font-family:${config.fbFont};">${config.strings.again}</button>
-    </div>
-</div>
-
-<script>
-const cfg = ${JSON.stringify(config)};
-let score = 0, curQIndex = 0, time = cfg.isCountdown ? cfg.timerVal : 0;
-let tInt = null, timeElapsed = 0, correctAnswers = 0;
-const totalQ = cfg.q.length;
-const main = document.getElementById('main-field');
-const fxLayer = document.getElementById('fx-layer');
-
-function autoScaleGame() {
-    const w = window.innerWidth; const h = window.innerHeight;
-    const scale = Math.min(w / ${gWidth}, h / ${gHeight});
-    document.getElementById('game-container').style.transform = 'scale(' + scale + ')';
-}
-window.addEventListener('resize', autoScaleGame); autoScaleGame();
-
-let questionOrder = Array.from({length: cfg.q.length}, (_, i) => i);
-if (cfg.randomize) questionOrder.sort(() => Math.random() - 0.5);
-const targetPositions = cfg.taskFields && cfg.taskFields.length > 0 ? cfg.taskFields : [{top: document.getElementById('task-card-preview') ? document.getElementById('task-card-preview').style.top : '100px', left: document.getElementById('task-card-preview') ? document.getElementById('task-card-preview').style.left : '100px'}];
-
-function updateMain() {
-const idx = Math.min(Math.floor(score / cfg.ptsStep), cfg.imgs.length - 1);
-const maxScore = cfg.ptsStep * (cfg.imgs.length - 1);
-const progress = maxScore > 0 ? Math.min(100, (score / maxScore) * 100) : 100;
-const currentIdx = main.getAttribute('data-img-idx');
-
-if (cfg.imgs[idx] && currentIdx !== String(idx)) {
-    main.style.transform = 'scale(1.03)'; main.style.filter = 'blur(2px)';
-    setTimeout(() => {
-        main.style.backgroundImage = 'url("' + cfg.imgs[idx] + '")';
-        main.style.transform = 'scale(1)'; main.style.filter = 'blur(0)';
-        main.setAttribute('data-img-idx', idx);
-    }, 100);
-} else if (!main.getAttribute('data-img-idx') && cfg.imgs[idx]) {
-    main.style.backgroundImage = 'url("' + cfg.imgs[idx] + '")';
-    main.setAttribute('data-img-idx', idx);
-}
-document.getElementById('val-score').innerText = score;
-document.getElementById('val-life').style.width = progress + '%';
-}
-
-function spawn() {
-const layer = document.getElementById('ui-layer'); layer.innerHTML = '';
-if(curQIndex >= questionOrder.length) {
-    if(cfg.loop) {
-        curQIndex = 0;
-        if(cfg.randomize) questionOrder.sort(() => Math.random() - 0.5);
-    } else {
-        return end();
+function downloadGameHTML() {
+    try {
+        const rawHtml = generateGameCode(true);
+        if (!rawHtml) return;
+        const blob = new Blob([rawHtml], { type: "text/html;charset=utf-8" });
+        const dlAnchorElem = document.createElement('a');
+        dlAnchorElem.href = URL.createObjectURL(blob);
+        dlAnchorElem.download = "game.html";
+        dlAnchorElem.click();
+        URL.revokeObjectURL(dlAnchorElem.href);
+    } catch(e) {
+        alert("Ошибка при сохранении файла HTML: " + e.message);
     }
-}
-
-let curQ = questionOrder[curQIndex];
-const taskCard = document.createElement('div'); taskCard.className = 'task-card';
-const pos = targetPositions[curQIndex % targetPositions.length];
-taskCard.style.top = pos.top || '${document.getElementById('task-top').value}px';
-taskCard.style.left = pos.left || '${document.getElementById('task-left').value}px';
-
-const questionDiv = document.createElement('div'); questionDiv.className = 'task-question';
-questionDiv.innerHTML = cfg.q[curQ]; taskCard.appendChild(questionDiv);
-
-const allAnswers = [ {text: cfg.a[curQ], correct: true}, ...(cfg.w[curQ] || []).map(text => ({text: text, correct: false})) ];
-allAnswers.sort(() => Math.random() - 0.5);
-
-allAnswers.forEach((ansObj) => {
-const answerBtn = document.createElement('button'); answerBtn.className = 'task-answer-btn'; answerBtn.innerHTML = ansObj.text;
-answerBtn.onclick = (e) => {
-    if(ansObj.correct) {
-        answerBtn.classList.add('correct'); correctAnswers++;
-        const aud = document.getElementById('aud-cor'); if(cfg.fxCorAud && aud) { aud.currentTime=0; aud.play().catch(()=>{}); }
-        if(cfg.fxCorImg) { fxLayer.innerHTML = '<img src="'+cfg.fxCorImg+'" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); max-width:80%; max-height:80%; animation: popIn 0.3s forwards;">'; } 
-        else {
-            let html = ''; const colors = ['#ff0', '#f0f', '#0ff', '#0f0', '#f00', '#fff'];
-            const rect = answerBtn.getBoundingClientRect();
-            const scale = parseFloat(document.getElementById('game-container').style.transform.replace('scale(','').replace(')','')) || 1;
-            const containerRect = document.getElementById('game-container').getBoundingClientRect();
-            const cx = ((e.clientX || (rect.left + rect.width/2)) - containerRect.left) / scale;
-            const cy = ((e.clientY || (rect.top + rect.height/2)) - containerRect.top) / scale;
-            for(let i=0; i<30; i++) {
-                let col = colors[Math.floor(Math.random()*colors.length)]; let ang = Math.random() * Math.PI * 2; let spd = Math.random() * 120 + 50;
-                html += '<div style="position:absolute; background:'+col+'; width:8px; height:8px; border-radius:50%; top:'+cy+'px; left:'+cx+'px; transition: transform 0.8s cubic-bezier(0.1, 0.8, 0.3, 1), opacity 0.8s; opacity:1;" data-dx="'+(Math.cos(ang)*spd)+'" data-dy="'+(Math.sin(ang)*spd)+'" class="fx-spark"></div>';
-            }
-            fxLayer.innerHTML = html;
-            setTimeout(() => { document.querySelectorAll('.fx-spark').forEach(el => { el.style.transform = 'translate('+el.getAttribute('data-dx')+'px, '+el.getAttribute('data-dy')+'px)'; el.style.opacity = '0'; }); }, 50);
-        }
-        setTimeout(() => { fxLayer.innerHTML = ''; score += cfg.ptsTask; curQIndex++; updateMain(); spawn(); }, 1200);
-    } else {
-        answerBtn.classList.add('wrong'); answerBtn.disabled = true;
-        const aud = document.getElementById('aud-wr'); if(cfg.fxWrAud && aud) { aud.currentTime=0; aud.play().catch(()=>{}); }
-        if(cfg.fxWrImg) { fxLayer.innerHTML = '<img src="'+cfg.fxWrImg+'" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); max-width:80%; max-height:80%; animation: popIn 0.3s forwards;">'; setTimeout(() => { fxLayer.innerHTML = ''; }, 1200); } 
-        else {
-            let html = '';
-            for(let i=0; i<30; i++) {
-                let left = Math.random() * 100; let dur = (0.5 + Math.random()*0.4) * 1.2; let del = Math.random()*0.2;
-                html += '<div style="position:absolute; background:#00f3ff; width:3.3px; height:22px; top:-30px; left:'+left+'%; border-radius:2px; animation: dropRain '+dur+'s '+del+'s linear forwards;"></div>';
-            }
-            fxLayer.innerHTML = html; setTimeout(() => { fxLayer.innerHTML = ''; }, 1440);
-        }
-    }
-};
-taskCard.appendChild(answerBtn);
-});
-layer.appendChild(taskCard);
-}
-
-function startGame() {
-    document.getElementById('start-screen').style.display = 'none';
-    document.getElementById('bg-m').play().catch(()=>{});
-    
-    tInt = setInterval(() => {
-        timeElapsed++;
-        if (cfg.isCountdown) {
-            time--; document.getElementById('val-timer').innerText = time;
-            if(time <= 0) end();
-        } else {
-            time++; document.getElementById('val-timer').innerText = time;
-        }
-    }, 1000);
-    
-    updateMain(); spawn();
-}
-
-function end() {
-    if(tInt) clearInterval(tInt);
-    document.getElementById('feedback').style.display = 'flex';
-    
-    let resHtml = '<b>' + cfg.strings.total + ' ' + score + '</b>';
-    if(cfg.showTime) resHtml += '<br>' + cfg.strings.time + ' ' + timeElapsed + ' с';
-    if(cfg.showCorrect) resHtml += '<br>' + cfg.strings.correct + ' ' + correctAnswers + ' / ' + totalQ;
-    
-    document.getElementById('fb-res').innerHTML = resHtml;
-}
-
-document.getElementById('vol-slider').addEventListener('input', (e) => { document.getElementById('bg-m').volume = e.target.value / 100; });
-<\/script>
-</body>
-</html>`;
-if(returnOnly) return gameHtml;
-const escaped = gameHtml.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-document.getElementById('code-output').value = `<iframe srcdoc='${escaped}' width="100%" height="${gHeight}px" style="border:none; background:transparent;" allow="autoplay" allowfullscreen></iframe>`;
 }
 
 function copyCode() {
-const area = document.getElementById('code-output');
-area.select(); document.execCommand('copy'); alert('Код скопирован!');
+    const area = document.getElementById('code-output');
+    if(!area.value) {
+        alert('Сначала сгенерируйте код!');
+        return;
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(area.value).then(() => {
+            alert('Код скопирован!');
+        }).catch(() => {
+            area.select();
+            document.execCommand('copy');
+            alert('Код скопирован!');
+        });
+    } else {
+        area.select();
+        document.execCommand('copy');
+        alert('Код скопирован!');
+    }
 }
 
 applyLang();
